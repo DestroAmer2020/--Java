@@ -1,21 +1,34 @@
 // Другий клас: Зупинка
 public class Stop {
-    private String name;
+    private final String name;
     private int passengerCount;
+
     public Stop(String name, int passengerCount) {
         this.name = name;
-        this.passengerCount = passengerCount;
+        setPassengerCount(passengerCount);
     }
+
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+
     public int getPassengerCount() {
         return passengerCount;
     }
+
     public void setPassengerCount(int passengerCount) {
-        this.passengerCount = passengerCount;
+        if (passengerCount >= 0) {
+            this.passengerCount = passengerCount;
+        } else {
+            throw new IllegalArgumentException("Passenger count cannot be negative.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Stop{" +
+                "name='" + name + '\'' +
+                ", passengerCount=" + passengerCount +
+                '}';
     }
 }
