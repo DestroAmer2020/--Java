@@ -1,4 +1,6 @@
 // Другий клас: Зупинка
+import java.util.Objects;
+
 public class Stop {
     private final String name;
     private int passengerCount;
